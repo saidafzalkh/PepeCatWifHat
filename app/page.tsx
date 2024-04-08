@@ -18,6 +18,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 import Link from "next/link";
+import {useState} from "react";
 
 export default function Home() {
 
@@ -29,16 +30,21 @@ export default function Home() {
         }
     }
 
+    const [isTOCOpen, setIsTOCOpen] = useState(false);
+
     return (
         <main className="pb-12 animated-background bg-gradient-to-r from-red-400 via-yellow-500 to-pink-400">
 
             <header
                 className={"pt-8 flex items-center justify-end px-2 lg:px-0 md:max-w-screen-md lg:max-w-screen-lg mx-auto"}>
 
-                <Sheet>
-                    <SheetTrigger>
-                        <List size={42}/>
-                    </SheetTrigger>
+                <Button variant={'ghost'} onClick={(e) => {
+                    setIsTOCOpen(true);
+                }}>
+                    <List size={42}/>
+                </Button>
+
+                <Sheet open={isTOCOpen}>
                     <SheetContent>
                         <SheetHeader>
                             <SheetTitle>Table of Content</SheetTitle>
@@ -46,28 +52,53 @@ export default function Home() {
                                 <nav>
                                     <ul className={"flex flex-col gap-2"}>
                                         <li>
-                                            <Link href={"#main"} className={"text-xl hover:text-blue-500 "}>
+                                            <Link className={"text-xl hover:text-blue-500 "}
+                                                  onClick={(e) => {
+                                                      setIsTOCOpen(false);
+                                                  }}
+                                                  href={"#main"}
+                                            >
                                                 Main
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href={"#about"} className={"text-xl hover:text-blue-500 "}>
+                                            <Link className={"text-xl hover:text-blue-500 "}
+                                                  onClick={(e) => {
+                                                      setIsTOCOpen(false);
+                                                  }}
+                                                  href={"#about"}
+                                            >
                                                 Information
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href={"#tokenomics"} className={"text-xl hover:text-blue-500 "}>
+                                            <Link className={"text-xl hover:text-blue-500 "}
+                                                  onClick={(e) => {
+                                                      setIsTOCOpen(false);
+                                                  }}
+                                                  href={"#tokenomics"}
+                                            >
                                                 Tokenomics
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href={"#chart"} className={"text-xl hover:text-blue-500 "}>
+                                            <Link className={"text-xl hover:text-blue-500 "}
+                                                  onClick={(e) => {
+                                                      setIsTOCOpen(false);
+                                                  }}
+                                                  href={"#chart"}
+                                            >
                                                 Live Chart
                                             </Link>
                                         </li>
 
                                         <li>
-                                            <Link href={"#footer"} className={"text-xl hover:text-blue-500 "}>
+                                            <Link className={"text-xl hover:text-blue-500 "}
+                                                  onClick={(e) => {
+                                                      setIsTOCOpen(false);
+                                                  }}
+                                                  href={"#footer"}
+                                            >
                                                 Links
                                             </Link>
                                         </li>
@@ -169,7 +200,8 @@ export default function Home() {
                     </div>
                 </div>
 
-                <a href={Content.dextools} className={"w-full mt-12 flex flex-col-reverse sm:flex-row items-center justify-center sm:gap-4"}>
+                <a href={Content.dextools}
+                   className={"w-full mt-12 flex flex-col-reverse sm:flex-row items-center justify-center sm:gap-4"}>
                     <div className={"bg-white rounded-2xl px-14"}>
                         <svg fill="none" height="312.5" viewBox="0 -.058 754.779 867.058" width="181.15"
                              xmlns="http://www.w3.org/2000/svg">
