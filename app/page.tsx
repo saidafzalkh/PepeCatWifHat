@@ -35,8 +35,8 @@ export default function Home() {
 
                         <div className={"flex gap-2 items-center mt-8"}>
                             CA:
-                            <Input defaultValue={Content.hash}/>
-                            <Button onClick={() => handleCopy(Content.hash)} variant={"secondary"}>
+                            <Input defaultValue={Content.ca}/>
+                            <Button onClick={() => handleCopy(Content.ca)} variant={"secondary"}>
                                 <span className={"mr-2"}>COPY</span>
                                 <Copy/>
                             </Button>
@@ -84,73 +84,86 @@ export default function Home() {
             <section className={"max-w-screen-lg mx-auto mt-8 px-4"}>
                 <h2 className={"text-4xl my-8 font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient text-center"}>TOKENOMICS</h2>
 
-                <div>
-                    <div>
-
+                <div className={"flex flex-col md:flex-row gap-4"}>
+                    <div className={"w-full md:w-1/3 p-4 flex flex-col items-center gap-2 border-2 border-white rounded-xl text-white"}>
+                        <h4 className={"text-xl font-bold"}>Total Supply</h4>
+                        <p>{Content.supply}</p>
                     </div>
-                    <div></div>
-                    <div></div>
+                    <div className={"w-full md:w-1/3 p-4 flex flex-col items-center gap-2 border-2 border-white rounded-xl text-white"}>
+                        <h4 className={"text-xl font-bold"}>LP Burned</h4>
+                        <p>{Content.supply}</p>
+                    </div>
+                    <div className={"w-full md:w-1/3 p-4 flex flex-col items-center gap-2 border-2 border-white rounded-xl text-white"}>
+                        <h4 className={"text-xl font-bold"}>CA</h4>
+                        <div className={"flex gap-2"}>
+                            <Input defaultValue={Content.ca} className={"max-w-[150px] text-black"}/>
+                            <Button onClick={() => handleCopy(Content.ca)} variant={"secondary"}>
+                                <span className={"mr-2"}>COPY</span>
+                                <Copy/>
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section className={"max-w-screen-lg mx-auto mt-8 px-4"}>
 
                 <h2 className={"text-4xl md:text-[5rem] md:leading-[6rem] my-8 font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient text-center"}>LIVE
-                        CHART</h2>
+                    CHART</h2>
 
-                    <style jsx>
-                        {`
-                            #dexscreener-embed {
-                                position: relative;
-                                width: 100%;
-                                padding-bottom: 125%;
+                <style jsx>
+                    {`
+                        #dexscreener-embed {
+                            position: relative;
+                            width: 100%;
+                            padding-bottom: 125%;
+                        }
+
+                        @media (min-width: 1400px) {
+                            #dexscreener
+                            -embed {
+                                padding-bottom: 65%;
                             }
+                        }
 
-                            @media (min-width: 1400px) {
-                                #dexscreener
-                                -embed {
-                                    padding-bottom: 65%;
-                                }
-                            }
+                        #dexscreener-embed
+                        iframe {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            border: 0;
+                        }
+                    `}
+                </style>
+                <div id="dexscreener-embed">
+                    <iframe
+                        src={`${Content.link}?embed=1&theme=dark`}></iframe>
+                </div>
+            </section>
 
-                            #dexscreener-embed
-                            iframe {
-                                position: absolute;
-                                width: 100%;
-                                height: 100%;
-                                top: 0;
-                                left: 0;
-                                border: 0;
-                            }
-                        `}
-                    </style>
-                    <div id="dexscreener-embed">
-                        <iframe
-                            src={`${Content.link}?embed=1&theme=dark`}></iframe>
-                    </div>
-                </section>
-
-                <section className={"max-w-screen-lg mx-auto mt-8 px-4 flex flex-col items-center"}>
-                    <h2 className={"text-4xl my-8 font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient text-center"}>JOIN
-                        US ON SOCIAL MEDIA</h2>
-                    <ul className={"flex gap-4"}>
-                        <li>
-                            <a href={Content.telegram} title={"Telegram"} className={"block"}>
-                                <Telegram size={42} className={"hover:fill-blue-700 cursor-pinter"}/>
-                            </a>
-                        </li>
-                        <li>
-                            <a href={Content.twitter} className={"block"}>
-                                <TwitterX size={42} className={"hover:fill-gray-900 cursor-pinter"}/>
-                            </a>
-                        </li>
-                        <li>
-                            <a href={Content.website} className={"block"}>
-                                <Globe size={42} className={"hover:fill-purple-500 cursor-pinter"}/>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
+            <section className={"max-w-screen-lg mx-auto mt-8 px-4 flex flex-col items-center"}>
+                <h2 className={"text-4xl my-8 font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient text-center"}>JOIN
+                    US ON SOCIAL MEDIA</h2>
+                <ul className={"flex gap-4"}>
+                    <li>
+                        <a href={Content.telegram} title={"Telegram"} className={"block"}>
+                            <Telegram size={42} className={"hover:fill-blue-700 cursor-pinter"}/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href={Content.twitter} className={"block"}>
+                            <TwitterX size={42} className={"hover:fill-gray-900 cursor-pinter"}/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href={Content.website} className={"block"}>
+                            <Globe size={42} className={"hover:fill-purple-500 cursor-pinter"}/>
+                        </a>
+                    </li>
+                </ul>
+            </section>
         </main>
-);
+    );
 }
