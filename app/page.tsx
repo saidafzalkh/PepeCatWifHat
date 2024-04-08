@@ -24,7 +24,7 @@ export default function Home() {
             <section role="main" className={"px-2 lg:px-0 md:max-w-screen-md lg:max-w-screen-lg mx-auto"}>
                 <article role={"banner"} className={"flex flex-col-reverse sm:flex-row items-center justify-between"}>
                     <div className={"flex flex-col gap-4 items-center"}>
-                        <h1 className={"text-white text-2xl sm:text-3xl md:text-4xl font-bold uppercase"}>Welcome to new
+                        <h1 className={"text-center text-white text-2xl sm:text-3xl md:text-4xl font-bold uppercase"}>Welcome to new
                             era
                             with <br/> <span
                                 className={"animated-background text-3xl sm:leading-[3rem] md:leading-[4rem] bg-gradient-to-r from-blue-500 to-cyan-900 bg-clip-text text-transparent text-[3rem] md:text-[4rem]"}>{Content.token} Token</span>
@@ -34,7 +34,7 @@ export default function Home() {
                         </Button>
 
                         <div className={"flex gap-2 items-center mt-8"}>
-                            CA:
+                            <span className={"text-white font-bold text-xl"}>CA:</span>
                             <Input defaultValue={Content.ca}/>
                             <Button onClick={() => handleCopy(Content.ca)} variant={"secondary"}>
                                 <span className={"mr-2"}>COPY</span>
