@@ -7,7 +7,8 @@ export const Content = {
     telegram: "https://t.me/pepecatwifhat",
     twitter: "https://twitter.com/pepecatwifhat",
     website: "https://pepe-cat-wif-hat.vercel.app/",
+    dextools: "",
 
     supply: "1 000 000 000 $PCWH",
-    lp: "10%"
+    lp: "90%"
 }
