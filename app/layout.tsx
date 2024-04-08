@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Tilt_Neon } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import {Toaster} from "@/components/ui/sonner";
 
-const inter = Inter({ subsets: ["latin"] });
+const tilt = Tilt_Neon({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "PepeCatWifHat",
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={tilt.className}>{children}</body>
     <Toaster />
     </html>
   );
